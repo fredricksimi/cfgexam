@@ -1,0 +1,27 @@
+1. Assume that we design a basic hash function based on ASCII code. The following points need to be considered:
+Hash function input and output: The input is a string (or byte sequence), and the output is an integer as the hash value.
+Hash function design: A simple method is to add the ASCII code value of each character in the string to get the hash value.
+Hash collision handling: Hash collisions are handled by open addressing or chain addressing. In the open addressing method, if a collision occurs, the next empty position is searched sequentially. In the chain addressing method, each position maintains a linked list to store data with the same hash value.
+Memory constraint considerations: Consider the additional space consumption of buckets or linked lists, and choose a collision handling method that is suitable for the application scenario.
+
+
+
+2. An example where there is no hash collision:
+Hash function input: "hello"
+
+The ASCII code of each character is as follows:
+ASCII('h') = 104
+ASCII('e') = 101
+ASCII('l') = 108
+ASCII('l') = 108
+ASCII('o') = 111
+
+Hash value = (104 + 101 + 108 + 108 + 111) = 532
+
+In this example, since each character in the string "hello" has a unique ASCII code and the hash table is large enough, there is no hash collision.
+
+
+
+3. An example where there is a hash collision:
+Hash value of "hello" and "heoll" is the same, hence a hash collision occurs. We can use the chain address method to store key-value pairs with the same hash value in the same linked list.
+The final hash value is 532, and there is a linked list in the hash table that contains two key-value pairs: "hello" and "heoll".
